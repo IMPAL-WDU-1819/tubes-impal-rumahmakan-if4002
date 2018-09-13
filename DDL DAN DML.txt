@@ -1,0 +1,113 @@
+CREATE DATABASE TFA;
+
+a. Create Tabel Supplier
+        create table supplier (
+	id integer(10) primary key auto_increment,
+	nama varchar(20) not null,
+	alamat varchar(20) not null
+      );
+
+b. Create Table Gudang(
+	id integer(10) primary key auto_increment,
+	nama varchar(30) not null,
+	username varchar(30) not null,
+	password varchar(30) not null,
+	jeniskelamin varchar(10) not null,
+	ttl date not null,
+	alamat varchar(30) not null
+      );
+
+c. create table Bahan (
+	id_bahan integer(10) primary key auto_increment,
+	nama_bahan varchar(30) not null,
+	jumlah integer not null,
+	satuan varchar(30) not null,
+	harga_satuan integer not null,
+	tgl_masuk date not null,
+	tgl_kadaluarsa date not null
+      );
+
+d. Create table dapur(
+	id integer(10) primary key auto_increment
+      );
+
+e. Create Table kasir( 
+	integer(10) primary key auto_increment,
+	username varchar(30) not null, 
+	password varchar(30) not null, 
+	nama_kasir varchar(30) not null,
+	ttl date not null,
+	alamat varchar(30) not null, 
+	jeniskelamin varchar(10) not null 
+	);
+
+f. Create Table transaksi( 
+	id_transaksi integer(10) primary key auto_increment, 
+	nama_pesanan varchar(30) not null, 
+	jumlah integer(10) not null, 
+	harga double not null, 
+	tanggal date not null, 
+	waktu time not null, 
+	keterangan varchar(10) not null, 
+	total_harga integer(10) not null 
+	);
+
+g. Create Table manager( 
+	id integer(10) primary key auto_increment,
+	username varchar(30) not null, 
+	password varchar(30) not null, 
+	nama_manager varchar(30) not null,
+	ttl date not null,
+	alamat varchar(30) not null, 
+	jeniskelamin varchar(10) not null 
+	);
+
+h. Create table laporan(
+	tgl_awal date not null,
+	tgl_akhir date not null
+      	);
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2. DML
+   a. Registrasi:
+      - INSERT INTO Supplier VALUES($id_supplier, $nama_supplier, $alamat);
+      - INSERT INTO Kasir ($username, $password, $Nama_kasir, $Alamat, $TTL, $jenisKelamin) VALUES($username, $password, $Nama_kasir, $Alamat, $TTL, $jenisKelamin);
+      - INSERT INTO Manager ($username, $password, $Nama_manager, $TTL, $alamat, $jenisKelamin) VALUES($username, $password, $Nama_kasir, $TTL, $alamat, $jenisKelamin);
+      - INSERT INTO Gudang ($username, $password, $Nama_gudang, $TTL, $alamat, $jenisKelamin) VALUES($username, $password, $Nama_kasir, $TTL, $alamat, $jenisKelamin);
+   
+   b. Autentikasi Akun:
+      - SELECT username, nama_kasir FROM Kasir WHERE username=$username AND password=$password;
+      - SELECT username, nama_manager FROM Manager WHERE username=$username AND password=$password;
+      - SELECT username, nama_gudang FROM Gudang WHERE username=$username AND password=$password;
+
+   c. Tambah Bahan:
+      - INSERT INTO Bahan VALUES($id_bahan, $namaBahan, $Jumlah, $Satuan, $tglMasuk, $tglKadaluarsa, $hargaSatuan);
+
+   d. Lihat Bahan:
+      - SELECT id_bahan, namaBahan, jumlah, Satuan, tglMasuk, tglKadaluarsa, hargSatuan FROM Bahan;
+
+   e. Edit Bahan:
+      - UPDATE Bahan SET(namaBahan, jumlah, Satuan, tglMasuk, tglKadaluarsa, hargSatuan) VALUES ($namaBahan, $Jumlah, $Satuan, $tglMasuk, $tglKadaluarsa, $hargaSatuan) WHERE id_bahan = $id_bahan;
+
+   f. Hapus Bahan:
+      - DELETE FROM Bahan WHERE id_bahan = $id_bahan;
+
+   g. Tambah Transaksi:
+      - INSERT INTO Transaksi VALUES($nama_pesanan, $jumlah, $harga, $totalharga, $tanggal, $waktu, $keterangan);
+
+   h. Lihat Transaksi:
+      - SELECT id_transaksi, nama_pesanan, jumlah, harga, totalharga, tanggal, waktu, keterangan FROM Transaksi;
+
+   i. Lihat Laporan Transaksi:
+      - SELECT id_transaksi, nama_pesanan, jumlah, harga, totalharga, tanggal, waktu, keterangan FROM Transaksi WHERE tanggal < $tglakhir AND tanggal > $tglawal;
+
+   j. Lihat Laporan Bahan: 
+      - SELECT id_bahan, namaBahan, jumlah, Satuan, tglMasuk, tglKadaluarsa, hargSatuan FROM Bahan WHERE tglMasuk < $tglmasuk AND tglMasuk > $tglkeluar;
+
+   k. Lihat Laporan transaksi
+      - SELECT id_bahan, namaBahan, jumlah, Satuan, tglMasuk, tglKadaluarsa, hargSatuan FROM Bahan WHERE tglMasuk < $tglmasuk AND tglMasuk > $tglkeluar;
+
+   l. Lihat laporan bahan:
+      - SELECT id_transaksi, nama_pesanan, jumlah, harga, totalharga, tanggal, waktu, keterangan FROM Transaksi WHERE tanggal < $tglakhir AND tanggal > $tglawal;
