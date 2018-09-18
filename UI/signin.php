@@ -36,8 +36,16 @@
 				<form name="sinin" onsubmit="return validasiForm()" method="post" action="hsignin.php" style="padding-left: 60%;">
 					<fieldset>
 						<legend>Sign In</legend>
-						<span id="icn1" class="glyphicon glyphicon-user" style="padding-right: 10px; padding-bottom: 15px;"></span><input type="email" name="email" placeholder="Email" ><br>
-						<span id="icn1" class="glyphicon glyphicon-lock" style="padding-right: 10px; padding-bottom: 15px;"></span><input type="password" name="pass" placeholder="Password"><br>
+						<span id="icn1" class="glyphicon glyphicon-user" style="padding-right: 10px; padding-bottom: 15px;"></span>
+            <input type="email" name="email" placeholder="Email" ><br>
+						<span id="icn1" class="glyphicon glyphicon-lock" style="padding-right: 10px; padding-bottom: 15px;"></span>
+            <input type="password" name="pass" placeholder="Password"><br>
+            <select name="Role" style="margin-bottom: 5px; padding-left: 60px; padding-right: 35px; margin-left: 23px;">
+              <option>Role</option>
+              <option value="Kasir">Kasir</option>
+              <option value="Dapur">Dapur</option>
+              <option value="Manager">Manager</option>
+            </select><br>
 						<input id="btnLgn" type="submit" name="sbmt" value="Login" class="btn btn-primary" style="padding-left: 50px; padding-right: 50px; margin-left: 40px;"><br>
             <a href="register.php" style="margin-left: 10px;">Belum Punya Akun? Klik Disini</a>
 					</fieldset>

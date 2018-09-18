@@ -18,10 +18,10 @@
     <img src="logo.png" class="rounded" alt="Cinque Terre" style="margin-left: 60px;">
   </div>
   <div class="col-sm-5" style="background-color: blue;">
-    <h1>HOME</h1>
+    <h2>KELOLA BAHAN</h2>
   </div>
   <div class="col-sm-5" style="background-color: blue;">
-    <h2>Nama User</h2>
+    <h3>Nama User</h3>
   </div>
 </div>
 <div class="row">
@@ -29,9 +29,7 @@
     <button type="button" class="btn" id="btnlftT">Transaksi</button>
   </div>
   <div class="col-sm-2"></div>
-  <div class="col-sm-8">
-    <h4>PROFILE</h4>
-  </div>
+  <div class="col-sm-8"><h4>Daftar Bahan</h4></div>
 </div>
 <div class="row">
   <div class="col-sm-2">
@@ -40,10 +38,20 @@
   </div>
   <div class="col-sm-2"></div>
   <div class="col-sm-8">
-    <table>
+    <table class="table-bordered" style="border-color: black;">
       <tr>
-        <td><h5>Name : </h5></td>
-        <td><input type="text" name="name" style="margin-left: 20px;"></td>
+        <th>NO</th>
+        <th>Nama Bahan</th>
+        <th>Tanggal Kadaluarsa</th>
+        <th>Jumlah</th>
+        <th>Satuan</th>
+      </tr>
+      <tr>
+        <td>Contoh 1</td>
+        <td>Contoh 2</td>
+        <td>Contoh 3</td>
+        <td>Contoh 4</td>
+        <td>Contoh 5</td>
       </tr>
     </table>
   </div>
@@ -53,15 +61,6 @@
     <button type="button" class="btn" id="btnlftK">Kelola Bahan
     </button>
   </div>
-  <div class="col-sm-2"></div>
-  <div class="col-sm-8">
-    <table>
-      <tr>
-        <td><h5>Gender : </h5></td>
-        <td><input type="text" name="" style="margin-left: 11px;"></td>
-      </tr>
-    </table>
-  </div>
 </div>
 <div class="row">
   <div class="col-sm-2">
@@ -69,11 +68,11 @@
     </button>
   </div>
   <div class="col-sm-2"></div>
-  <div class="col-sm-8">
+  <div class="col-sm-2">
     <table>
       <tr>
-        <td><h5>TTL : </h5></td>
-        <td><input type="text" name=""style="margin-left: 33px;"></td>
+        <td><button>EDIT</button></td>
+        <td><button>DELETE</button></td>
       </tr>
     </table>
   </div>
@@ -84,16 +83,14 @@
     </button>
   </div>
   <div class="col-sm-2"></div>
-  <div class="col-sm-8">
+  <div class="col-sm-3"></div>
+  <div class="col-sm-2">
     <table>
       <tr>
-        <td><h5>Address : </h5></td>
-        <td><input type="text" name="" style="margin-left: 6px;"></td></tr></table></div>
-</div>
-<div class="row">
-  <div class="col-sm-2"></div>
-  <div class="col-sm-2"></div>
-  <div class="col-sm-8"></div>
+        <td><button>SUBMIT</button></td>
+      </tr>
+    </table>
+  </div>
 </div>
 </body>
 </html>
