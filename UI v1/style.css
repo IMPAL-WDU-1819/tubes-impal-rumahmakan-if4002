@@ -25,3 +25,12 @@
 	padding-top: 15px; 
 	padding-bottom: 15px;
 }
+.boxRL{
+	width : 50%; 
+	align-content: center; 
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+	opacity: 70%;
+	padding: 30px; 
+	border-radius: 10px;
+	background-color: #EEEEEE;
+}
