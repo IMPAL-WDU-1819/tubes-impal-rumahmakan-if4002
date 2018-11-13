@@ -40,3 +40,38 @@
     width: 300px;
 }
 
+.profile {
+	margin-top: 5%;
+	margin-bottom: 10%;
+	float: center;
+}
+
+.profile-img{
+    text-align: center;
+}
+ 
+.profile-img img{
+    width: 25%;
+    height: 50%;
+}
+
+.profile-box {
+	width: 80%;
+	border: none;
+	float: center;
+	padding-left: 80px;
+	padding-top: 10px;
+	font-size: 15px;	
+    
+}
+
+
+.h2 {
+	padding-left: 16%;
+}
+.profile p {
+	color: black;
+}
+.row {
+	padding-top: 3px;
+}
