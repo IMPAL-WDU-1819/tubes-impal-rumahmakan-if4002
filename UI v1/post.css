@@ -21,9 +21,10 @@
 	transform: scale(1.2);
 }
 
-.post h3 {
+.post h4 {
 	line-height: 16px;
 }
+
 .posts a {
 	text-decoration: none;
 }
