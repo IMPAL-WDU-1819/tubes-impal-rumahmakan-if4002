@@ -290,3 +290,13 @@ a.article, a.article:hover {
 
 }
 
+.header{
+    height: 70px;
+    width: 100%;
+    background-color: #40C4FF;
+    margin: 0px 0px;
+}
+
+.namauser{
+    padding: 17px;
+}
