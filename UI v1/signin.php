@@ -20,9 +20,9 @@
 						<h2>Sign In</h2>
 						<h2></h2>
 						<div class="form-group">
-							<label for="email" class="col-sm-2 control-label glyphicon glyphicon-user"></label>
+							<label for="username" class="col-sm-2 control-label glyphicon glyphicon-user"></label>
 							<div class="col-sm-10">
-								<input type="email" class="form-control"  name="email" id="email" placeholder="Email">
+								<input type="text" class="form-control"  name="unama" id="email" placeholder="Username">
 							</div>
 						</div>
 						<div class="form-group">
@@ -34,11 +34,11 @@
 						<div class="form-group">
 								<label for="role" class="col-sm-2 control-label">Role</label>
 								<div class="col-sm-10">
-									<select class="form-control col-sm-12" name="Role">
+									<select class="form-control col-sm-12" name="role">
 										<option>Role</option>
-										<option value="Kasir">Kasir</option>
-										<option value="Dapur">Dapur</option>
-										<option value="Manager">Manager</option>
+										<option value="kasir">Kasir</option>
+										<option value="dapur">Dapur</option>
+										<option value="manager">Manager</option>
 									</select>
 								</div>
 							</div>
@@ -49,7 +49,7 @@
 						</div>
 						<div class="form-group">
 							<div class="col-sm-offser-2 col-sm-10">
-								Belum Punya Akun? Klik<a href="register.html" style="margin-left: 10px; align-content: center" >Disini</a>
+								Belum Punya Akun? Klik<a href="register.php" style="margin-left: 10px; align-content: center" >Disini</a>
 							</div>
 						</div>
 				</form>

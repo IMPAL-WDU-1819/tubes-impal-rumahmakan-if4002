@@ -38,15 +38,15 @@
 							</div>
 					</div>
 					<div class="form-group">
-						<label for="ttl" class="col-sm-4 control-label">Place & Date of birth</label>
+						<label for="ttl" class="col-sm-4 control-label">Date of Birth</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control"  name="ttl" id="ttl" placeholder="Place & Date of Birth">
+							<input type="date" class="form-control"  name="ttl" id="ttl" placeholder="Place & Date of Birth">
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="address" class="col-sm-4 control-label">Address</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control"  name="Address" id="Address" placeholder="Address">
+							<input type="text" class="form-control"  name="address" id="Address" placeholder="Address">
 						</div>
 					</div>
 					<div class="form-group">
@@ -67,18 +67,18 @@
 					<div class="form-group">
 						<label for="role" class="col-sm-4 control-label">Role</label>
 						<div class="col-sm-8">
-							<select class="form-control col-sm-12" name="Role">
+							<select class="form-control col-sm-12" name="role">
 								<option>Role</option>
-								<option value="Kasir">Kasir</option>
-								<option value="Dapur">Dapur</option>
-								<option value="Manager">Manager</option>
+								<option value="kasir">Kasir</option>
+								<option value="dapur">Dapur</option>
+								<option value="manager">Manager</option>
 							</select>
 						</div>
 					</div>
   					<br>
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
-							<button type="button" class="btn btn-primary btn-lg btn-block" id="btnRegister" name="Register">Sign Up</button>
+							<button type="submit" class="btn btn-primary btn-lg btn-block" id="btnRegister" name="Register">Sign Up</button>
 						</div>
 					</div>
 				</form>

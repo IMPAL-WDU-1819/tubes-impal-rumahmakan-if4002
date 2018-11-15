@@ -1,3 +1,14 @@
+<?php
+session_start();
+include('koneksi.php');
+  if (empty($_SESSION['idlogin'])){
+  header("Location: signin.php");
+}//else if ($_SESSION['idlogin']){
+  //if ($_SESSION['level']=!"kasir"){
+    //header("Location: signin.php");
+  //}
+//}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +38,7 @@
     <button class="tablinks" onclick="openMenu(event, 'menu')">Menu</button>
     <button class="tablinks" onclick="openMenu(event, 'home')" id="defaultOpen">Home</button>
     <button class="tablinks" onclick="openMenu(event, 'editprofile')">Edit Profile</button>
-    <button class="tablinks">Logout</button>
+    <a href="fungsi/plogout.php"><button class="btnS btn btn-outline-danger">Logout</button></a>
 </div>
 
 <div id="home" class="tabcontent">
@@ -42,7 +53,19 @@
     </nav>
         
     <div class="profile">
-        
+        <?php
+            $role = $_SESSION['level'];
+            $id = $_SESSION['idlogin'];
+              
+            $sql = "SELECT * from $role where username = '$id'";
+            $query = mysqli_query($conn,$sql);
+            if ($data = mysqli_fetch_array($query)){
+            $nama = $data['nama_kasir'];
+            $jk = $data['jeniskelamin'];
+            $ttl = $data['ttl'];
+            $addr = $data['alamat'];
+        }
+         ?>
         <center><h2>Profile</h2></center>
         <div class="profile-img" style="margin: 60px 60px 30px 60px">
             <img src="assets/img/pp.jpg" width="25%" style="border-radius: 50%; align-content: center">
@@ -53,7 +76,7 @@
                     <label>Name</label>
                 </div>
                 <div class="col-md-5">
-                    <p>Selena</p>
+                    <p><?php echo $nama;?></p>
                 </div>
             </div>
             <div class="row">
@@ -61,15 +84,15 @@
                     <label>Gender</label>
                 </div>
                 <div class="col-md-5">
-                    <p>female</p>
+                    <p><?php echo $jk;?></p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-5">
-                    <label>Place & Fate of Birth</label>
+                    <label>Date of Birth</label>
                 </div>
                 <div class="col-md-5">
-                    <p>UK, 21-02-1993</p>
+                    <p><?php echo $ttl?></p>
                 </div>
             </div>
             <div class="row">
@@ -77,7 +100,7 @@
                     <label>Address</label>
                 </div>
                 <div class="col-md-5">
-                    <p>22 Old Queen Street, London</p>
+                    <p><?php echo $addr;?></p>
                 </div>
             </div>
         </div>
@@ -391,81 +414,75 @@
             </tr>
         </thead>
         <tbody>
+            <?php 
+            $query = mysqli_query($conn,"SELECT * from bahan");
+            while ($data = mysqli_fetch_array($query)){
+             ?>
             <tr>
-                <td>A123</td>
-                <td>Daging Ayam</td>
-                <td>16</td>
-                <td>kg</td>
-                <td>35000</td>
-                <td>12/5/2018</td>
-                <td>12/6/2018</td>
+                <td><?php echo $data['id_bahan']; ?></td>
+                <td><?php echo $data['nama_bahan']; ?></td>
+                <td><?php echo $data['jumlah']; ?></td>
+                <td><?php echo $data['satuan']; ?></td>
+                <td><?php echo $data['harga_satuan']; ?></td>
+                <td><?php echo $data['tgl_masuk']; ?></td>
+                <td><?php echo $data['tgl_kadaluarsa']; ?></td>
                 <td>
                 <center>
-                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                    <button class="btn btn-primary glyphicon glyphicon-edit" data-toggle = "modal" data-target ="#myModal<?php echo $data['id_bahan']?>">
+                    </button>
+                    <div id="myModal<?php echo $data['id_bahan']; ?>" class="modal fade" role="dialog" style="color:black;">
+                        <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Edit Data Bahan</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>  
+                            </div>
+                            <div class="modal-body">
+                                <form method="post" action="fungsi/ubahan.php">
+                                <div class="form-group">
+                                    <label>ID Bahan</label>
+                                    <input type="text" class="form-control" name="id_bahan" value="<?php echo $data['id_bahan'];?>"readonly>
+                                    <?php echo("<script>console.log('PHP: ".$data['id_bahan']."');</script>"); ?>
+                                </div>
+                                <div class="form-group">
+                                    <label>Nama Bahan</label>
+                                    <input type="text" class="form-control" name="nama_bahan" value="<?php echo $data['nama_bahan'];?>" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label>Jumlah</label>
+                                        <input type="text" class="form-control" name="jumlah"  value="<?php echo $data['jumlah'];?>">
+                                </div>
+                                <div class="form-group">
+                                    <label>Satuan</label>
+                                        <input type="text" class="form-control" name="satuan"  value="<?php echo $data['satuan'];?>">
+                                </div>
+                                <div class="form-group">
+                                    <label>Harga Satuan</label>
+                                        <input type="text" class="form-control" name="harga_satuan"  value="<?php echo $data['harga_satuan'];?>">
+                                </div>
+                                <div class="form-group">
+                                    <label>Tanggal Masuk</label>
+                                        <input type="date" class="form-control" name="tgl_masuk"  value="<?php echo $data['tgl_masuk'];?>">
+                                </div>
+                                <div class="form-group">
+                                    <label>Tanggal Kadaluarsa</label>
+                                        <input type="text" class="form-control" name="tgl_kadaluarsa" value="<?php echo $data['tgl_kadaluarsa'];?>">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Update</button>
+                                </form>
+                            </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
                     <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>                    
                 </center>
                 </td>
             </tr>
-            <tr>
-                <td>A123</td>
-                <td>Daging Ayam</td>
-                <td>16</td>
-                <td>kg</td>
-                <td>35000</td>
-                <td>12/5/2018</td>
-                <td>12/6/2018</td>
-                <td>
-                <center>
-                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>                    
-                </center>
-                </td>
-            </tr>
-            <tr>
-                <td>A123</td>
-                <td>Daging Ayam</td>
-                <td>16</td>
-                <td>kg</td>
-                <td>35000</td>
-                <td>12/5/2018</td>
-                <td>12/6/2018</td>
-                <td>
-                <center>
-                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>                    
-                </center>
-                </td>
-            </tr>
-            <tr>
-                <td>A123</td>
-                <td>Daging Ayam</td>
-                <td>16</td>
-                <td>kg</td>
-                <td>35000</td>
-                <td>12/5/2018</td>
-                <td>12/6/2018</td>
-                <td>
-                <center>
-                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>                    
-                </center>
-                </td>
-            </tr>
-            <tr>
-                <td>A123</td>
-                <td>Daging Ayam</td>
-                <td>16</td>
-                <td>kg</td>
-                <td>35000</td>
-                <td>12/5/2018</td>
-                <td>12/6/2018</td>
-                <td>
-                <center>
-                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>                    
-                </center>
-                </td>
-            </tr>
+        <?php } ?>
         </tbody>
         <tfoot>
             <tr>
@@ -526,24 +543,19 @@
                 <div class="col-md-6">
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="gender" value="male">male
+                            <input type="radio" class="form-check-input" name="gender" value="male" checked>Male
                         </label>
                     </div>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="gender" value="female">female
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="gender" value="other">other
+                            <input type="radio" class="form-check-input" name="gender" value="female">Female
                         </label>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4">
-                     <label>Place & Fate of Birth</label>
+                     <label>Place & Date of Birth</label>
                 </div>
                 <div class="col-md-6">
                         <input type="text" class="form-control" id="usr">
