@@ -40,7 +40,7 @@
     border: 1px solid #ccc;
     background-color: #f1f1f1;
     width: 15%;
-    /* height: 300px; */
+    height: 100%;
 }
 
 .tab button {
@@ -293,7 +293,7 @@ a.article, a.article:hover {
 .header{
     height: 70px;
     width: 100%;
-    background-color:white;
+    background-color:#40C4FF;
     margin: 0px 0px;
 }
 

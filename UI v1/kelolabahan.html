@@ -5,14 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sistem Informasi RM ABCD</title>
-	<link rel="stylesheet" href="style.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="post.css">
 
@@ -249,6 +245,9 @@
                 </div>
             </div>
         </div>
+        <div class="col-sm-6">
+            <button class="btn btn-primary">ADD Item</button>
+        </div>
     </div> 
     <br> 
     <h4>Daftar</h4>
@@ -276,6 +275,12 @@
                 <td>12:35</td>
                 <td>asdasd</td>
                 <td>120000</td>
+                <td>
+                    <center>
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>                    
+                    </center>
+                </td>
             </tr>
             <tr>
                 <td>A123</td>
@@ -286,6 +291,12 @@
                 <td>12:35</td>
                 <td>asdasd</td>
                 <td>120000</td>
+                <td>
+                    <center>
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>                    
+                    </center>
+                </td>
             </tr>
             <tr>
                 <td>A123</td>
@@ -296,6 +307,12 @@
                 <td>12:35</td>
                 <td>asdasd</td>
                 <td>120000</td>
+                <td>
+                    <center>
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>                    
+                    </center>
+                </td>
             </tr>
             <tr>
                 <td>A123</td>
@@ -306,6 +323,12 @@
                 <td>12:35</td>
                 <td>asdasd</td>
                 <td>120000</td>
+                <td>
+                    <center>
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>                    
+                    </center>
+                </td>
             </tr>
         </tbody>
         <tfoot>
@@ -318,7 +341,7 @@
                 <th>Waktu</th>
                 <th>Keterangan</th>
                 <th>Total Harga</th>
-                <th> <center>Action</center></th>
+                <th><center>Action</center></th>
             </tr>
         </tfoot>
     </table>
@@ -357,7 +380,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="row">
-                    <button>Proses</button>
+                    <button class="btn btn-primary">Proses</button>
                 </div>
             </div>
         </div> 
@@ -583,7 +606,16 @@
     </div>        
 </div>
   
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
 <script type="text/javascript" language="javascript">
+
+    $(document).ready(function() {
+        $('#table_id').DataTable();
+
+    });
 
     function openMenu(evt, menuName) {
         var i, tabcontent, tablinks;
@@ -603,11 +635,6 @@
 
     }
     document.getElementById("defaultOpen").click(); 
-    
-    $(document).ready(function() {
-        $('#table_id').DataTable();
-
-} );
 </script>
 </body>
 </html>
