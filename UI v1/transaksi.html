@@ -22,9 +22,9 @@
     <div style="margin: 30px 60px 30px 60px">
         <img src="assets/img/logo.png" width="90%" style="border-radius: 50%; align-content: center">
     </div>
-    <button class="tablinks" onclick="openMenu(event, 'transaksi')" disabled>Transaksi</button>
-    <button class="tablinks" onclick="openMenu(event, 'kelolabahan')" id="defaultOpen">Kelola Bahan</button>
-    <button class="tablinks" onclick="openMenu(event, 'menu')" disabled>Menu</button>
+    <button class="tablinks" onclick="openMenu(event, 'transaksi')">Transaksi</button>
+    <button class="tablinks" onclick="openMenu(event, '#')" disabled>Kelola Bahan</button>
+    <button class="tablinks" onclick="openMenu(event, 'menu')" id="defaultOpen">Menu</button>
     <button class="tablinks" onclick="openMenu(event, 'home')" >Home</button>
     <button class="tablinks" onclick="openMenu(event, 'editprofile')">Edit Profile</button>
     <button class="tablinks">Logout</button>
@@ -363,123 +363,6 @@
         </div> 
         <br>
     </div>
-</div>
-
-<div id="kelolabahan" class="tabcontent">
-    <div class="header row">
-        <div class="col-sm-9">
-            <h3>Kelola Bahan</h3>
-        </div>
-        <div class="col-sm-3 namauser">
-            <h4><center>Nama User - ID</center></h4>
-        </div>
-    </div>
-    <br>
-    <h3><center><strong>Daftar Bahan</strong></center></h3>
-    <br>
-    <table id="table_id" class="table table-striped table-bordered" style="width:100%">
-        <thead>
-            <tr>
-                <th>Id Bahan</th>
-                <th>Nama Bahan</th>
-                <th>Jumlah</th>
-                <th>Satuan</th>
-                <th>harga Satuan</th>
-                <th>Tanggal Masuk</th>
-                <th>Tanggal Kadaluarsa</th>
-                <th> <center>Action</center></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>A123</td>
-                <td>Daging Ayam</td>
-                <td>16</td>
-                <td>kg</td>
-                <td>35000</td>
-                <td>12/5/2018</td>
-                <td>12/6/2018</td>
-                <td>
-                <center>
-                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>                    
-                </center>
-                </td>
-            </tr>
-            <tr>
-                <td>A123</td>
-                <td>Daging Ayam</td>
-                <td>16</td>
-                <td>kg</td>
-                <td>35000</td>
-                <td>12/5/2018</td>
-                <td>12/6/2018</td>
-                <td>
-                <center>
-                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>                    
-                </center>
-                </td>
-            </tr>
-            <tr>
-                <td>A123</td>
-                <td>Daging Ayam</td>
-                <td>16</td>
-                <td>kg</td>
-                <td>35000</td>
-                <td>12/5/2018</td>
-                <td>12/6/2018</td>
-                <td>
-                <center>
-                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>                    
-                </center>
-                </td>
-            </tr>
-            <tr>
-                <td>A123</td>
-                <td>Daging Ayam</td>
-                <td>16</td>
-                <td>kg</td>
-                <td>35000</td>
-                <td>12/5/2018</td>
-                <td>12/6/2018</td>
-                <td>
-                <center>
-                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>                    
-                </center>
-                </td>
-            </tr>
-            <tr>
-                <td>A123</td>
-                <td>Daging Ayam</td>
-                <td>16</td>
-                <td>kg</td>
-                <td>35000</td>
-                <td>12/5/2018</td>
-                <td>12/6/2018</td>
-                <td>
-                <center>
-                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>                    
-                </center>
-                </td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <th>Id Bahan</th>
-                <th>Nama Bahan</th>
-                <th>Jumlah</th>
-                <th>Satuan</th>
-                <th>harga Satuan</th>
-                <th>Tanggal Masuk</th>
-                <th>Tanggal Kadaluarsa</th>
-                <th> <center>Action</center></th>
-            </tr>
-        </tfoot>
-    </table>
 </div>
 
 <div id="editprofile" class="tabcontent">
