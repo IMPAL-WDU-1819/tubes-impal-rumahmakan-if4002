@@ -57,11 +57,11 @@
 }
 
 .tab button:hover {
-    background-color: #80D8FF;
+    background-color: #80DEEA;
 }
 
 .tab button.active {
-    background-color: #40C4FF;
+    background-color: #00BCD4;
 }
 
 .tabcontent {
@@ -293,7 +293,7 @@ a.article, a.article:hover {
 .header{
     height: 70px;
     width: 100%;
-    background-color:white;
+    background-color:#00BCD4;
     margin: 0px 0px;
 }
 

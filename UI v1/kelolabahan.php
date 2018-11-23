@@ -188,7 +188,7 @@ include('koneksi.php');
                                     <label>Tanggal Kadaluarsa</label>
                                         <input type="text" class="form-control" name="tgl_kadaluarsa" value="<?php echo $data['tgl_kadaluarsa'];?>">
                                 </div>
-                                <button type="submit" class="btn btn-primary">Update</button>
+                                <button type="submit" class="btn btn-primary"  style="background-color: #00BCD4; border: 0px">Update</button>
                                 </form>
                             </div>
                         <div class="modal-footer">
@@ -305,7 +305,7 @@ include('koneksi.php');
                         <label class="col-lg-3 col-form-label form-control-label"></label>
                         <div class="col-lg-9">
                             <input type="reset" class="btn btn-secondary" value="Cancel" />
-                            <input type="button" class="btn btn-primary" value="Save Changes" />
+                            <input type="button" class="btn btn-primary"  style="background-color: #00BCD4; border: 0px" value="Save Changes" />
                         </div>
                     </div>
                 </div>
