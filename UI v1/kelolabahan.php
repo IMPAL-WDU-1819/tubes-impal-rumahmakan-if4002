@@ -42,7 +42,7 @@ include('koneksi.php');
 </div>
 
 <div id="home" class="tabcontent">
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light header">
         <div class="container-fluid">
             <ul class="nav navbar-nav navbar-right ml-auto">
                 <li class="nav-item">
@@ -219,7 +219,7 @@ include('koneksi.php');
 </div>
 
 <div id="editprofile" class="tabcontent">
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light header">
         <div class="container-fluid">
             <ul class="nav navbar-nav navbar-right ml-auto">
                 <li class="nav-item">
