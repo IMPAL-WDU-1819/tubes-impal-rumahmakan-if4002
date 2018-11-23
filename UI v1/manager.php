@@ -72,14 +72,14 @@ include('koneksi.php');
         <br>
         <div class="row">
             <div class="col-sm-6">
-                <button class="btn btn-primary pull-right">Tampilkan</button>
+                <button class="btn btn-primary pull-right" style="background-color: #26C6DA; border: 0px;">Tampilkan</button>
             </div>
             <div class="col-sm-6">
-                <button class="btn btn-primary">Cetak</button>
+                <button class="btn btn-primary" style="background-color: #26C6DA; border: 0px;">Cetak</button>
             </div>
         </div>
         <br>
-        <table id="table_id" class="display table table-striped table-bordered" cellspacing="0" style="width:100%">
+        <table id="mlaporan" class="display table table-striped table-bordered" cellspacing="0" style="width:100%">
             <thead>
                 <tr>
                     <th>Id Transaksi</th>
@@ -195,7 +195,7 @@ include('koneksi.php');
   				<br>
 				<div class="form-group">
 					<div class="col-sm-offset-6 col-sm-2">
-						<button type="button" class="btn btn-primary btn-lg btn-block" id="submit" name="submit">Submit</button>
+						<button type="button" class="btn btn-primary btn-lg btn-block" style="background-color: #26C6DA; border: 0px;" id="submit" name="submit">Submit</button>
 					</div>
 				</div>
 			</form>
@@ -213,7 +213,7 @@ include('koneksi.php');
         <br>
         <h3><center>Daftar Bahan</center></h3>
         <br>
-        <table id="table_id" class="display table table-striped table-bordered" cellspacing="0" style="width:100%">
+        <table id="mbahan" class="display table table-striped table-bordered" cellspacing="0" style="width:100%">
             <thead>
                 <tr>
                     <th>Id Bahan</th>
@@ -294,8 +294,8 @@ include('koneksi.php');
 <script type="text/javascript" language="javascript">
 
     $(document).ready(function() {
-        $('#table_id').DataTable();
-
+        $('#mlaporan').DataTable();
+        $('#mbahan').DataTable();
     });
 
     function openMenu(evt, menuName) {
