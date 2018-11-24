@@ -216,6 +216,77 @@ include('koneksi.php');
             </tr>
         </tfoot>
     </table>
+    <br>
+    <br>
+    <div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tbahan">Tambah Bahan</button>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="tbahan" tabindex="-1" role="dialog" aria-labelledby="tbahanlabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tbahanlabel">Tambah Bahan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Form -->
+				<form method="post" class="form-horizontal">
+					<h2>Tambah Bahan</h2>
+					<div class="form-group">
+						<label for="id" class="col-sm-4 control-label">ID Bahan</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control"  name="id" id="id" placeholder="ID Bahan">
+						</div>
+					</div>
+					<div class="form-group">
+							<label for="nama" class="col-sm-4 control-label">Nama Bahan</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control"  name="nama" id="nama" placeholder="Nama Bahan">
+							</div>
+					</div>
+					<div class="form-group">
+							<label for="jumlah" class="col-sm-4 control-label">Jumlah</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control"  name="jumlah" id="jumlah" placeholder="Jumlah">
+							</div>
+					</div>
+					<div class="form-group">
+						<label for="satuan" class="col-sm-4 control-label">Satuan</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control"  name="satuan" id="satuan" placeholder="Satuan">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="harga" class="col-sm-4 control-label">Harga Satuan</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control"  name="harga" id="harga" placeholder="Harga Satuan">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="tglmasuk" class="col-sm-4 control-label">Tanggal Masuk</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control"  name="tglmasuk" id="tglmasuk" placeholder="Tanggal Masuk">
+						</div>
+                    </div>
+                    <div class="form-group">
+						<label for="tglkadaluarsa" class="col-sm-4 control-label">Tanggal Kadaluarsa</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control"  name="tglkadaluarsa" id="tglkadaluarsa" placeholder="Tanggal Kadaluarsa">
+						</div>
+					</div>
+  					<br>
+				</form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Tambah</button>
+            </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div id="editprofile" class="tabcontent">
@@ -228,7 +299,7 @@ include('koneksi.php');
             </ul>
         </div>
     </nav>
-        
+
     <div class="profile">
         <div class="profile-img" style="margin: 60px 60px 30px 60px">
             <img src="assets/img/pp.jpg" width="25%" style="border-radius: 50%; align-content: center">
