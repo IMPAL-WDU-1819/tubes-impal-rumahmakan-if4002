@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,14 +12,16 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body style="background-color: #FAFAFA">
     <div class="tab">
         <div style="margin: 30px 60px 30px 60px">
             <img src="assets/img/logo.png" width="90%" style="border-radius: 50%; align-content: center">
         </div>
+        <button class="tablinks" onclick="openMenu(event, 'home')" id="defaultOpen">Home</button>
         <button class="tablinks" onclick="openMenu(event, 'laporan')">Laporan</button>
         <button class="tablinks" onclick="openMenu(event, 'home')" id="defaultOpen">Home</button>
-        <button class="tablinks" onclick="openMenu(event, 'kelolabahan')">Kelola Bahan</button>
+        <button class="tablinks" onclick="openMenu(event, 'meditprofil')">Edit Profile</button>
         <button class="tablinks">Logout</button>
     </div>
     <div id="laporan" class="tabcontent">
@@ -27,10 +30,14 @@
                 <h3>Laporan</h3>
             </div>
             <div class="col-sm-3 namauser">
-                <h4><center>Manager</center></h4>
+                <h4>
+                    <center>Manager</center>
+                </h4>
             </div>
         </div>
-        <h3><center>Laporan Transaksi</center></h3>
+        <h3>
+            <center>Laporan Transaksi</center>
+        </h3>
         <br>
         <div>
             <center>
@@ -44,7 +51,7 @@
             <form>
                 <div class="row">
                     <div class="col-sm-1">
-                        Periode : 
+                        Periode :
                     </div>
                     <div class="col-sm-2">
                         <input type="text" class="form-control" placeholder="Tanggal Mulai">
@@ -144,50 +151,41 @@
                 <h3>Home</h3>
             </div>
             <div class="col-sm-3 namauser">
-                <h4><center>Manager</center></h4>
+                <h4>
+                    <center>Manager</center>
+                </h4>
             </div>
         </div>
         <br>
         <div>
-            <h3>Edit Profile</h3>
-            <form method="post" action="hregister.php" class="form-horizontal">
-				<div class="form-group">
-					<label for="nama" class="col-sm-2 control-label">Name</label>
-					<div class="col-sm-6">
-						<input type="text" class="form-control"  name="nama" id="nama" placeholder="Fullname">
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="gender" class="col-sm-2 control-label">Gender</label>
-					<div class="col-sm-6">
-						<input type="text" class="form-control"  name="gender" id="gender" placeholder="Gender">
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="ttl" class="col-sm-2 control-label">Place & Date of birth</label>
-					<div class="col-sm-6">
-						<input type="text" class="form-control"  name="ttl" id="ttl" placeholder="Place & Date of Birth">
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="address" class="col-sm-2 control-label">Address</label>
-					<div class="col-sm-6">
-						<input type="text" class="form-control"  name="Address" id="Address" placeholder="Address">
-					</div>
-                </div>
-                <div class="form-group">
-                    <label for="pass" class="col-sm-2 control-label">New Password</label>
+            <h3>Profile</h3>
+            <form class="form-horizontal">
+                <div class="form-group row">
+                    <label for="nama" class="col-sm-2 control-label">Name : </label>
                     <div class="col-sm-6">
-                        <input type="password" class="form-control"  name="pass" id="pass" placeholder="New Password">
+                        <label>Nama Manager</label>
                     </div>
                 </div>
-  				<br>
-				<div class="form-group">
-					<div class="col-sm-offset-6 col-sm-2">
-						<button type="button" class="btn btn-primary btn-lg btn-block" style="background-color: #26C6DA; border: 0px;" id="submit" name="submit">Submit</button>
-					</div>
-				</div>
-			</form>
+                <div class="form-group">
+                    <label for="gender" class="col-sm-2 control-label">Gender : </label>
+                    <div class="col-sm-6">
+                        <label>Gender Manager</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="ttl" class="col-sm-2 control-label">Place & Date of birth : </label>
+                    <div class="col-sm-6">
+                        <label>date of birth Manager</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address" class="col-sm-2 control-label">Address : </label>
+                    <div class="col-sm-6">
+                        <label>Address Manager</label>
+                    </div>
+                </div>
+                <br>
+            </form>
         </div>
     </div>
     <div id="kelolabahan" class="tabcontent">
@@ -196,11 +194,15 @@
                 <h3>Kelola Bahan</h3>
             </div>
             <div class="col-sm-3 namauser">
-                <h4><center>Manager</center></h4>
+                <h4>
+                    <center>Manager</center>
+                </h4>
             </div>
         </div>
         <br>
-        <h3><center>Daftar Bahan</center></h3>
+        <h3>
+            <center>Daftar Bahan</center>
+        </h3>
         <br>
         <table id="kbahan" class="display table table-striped table-bordered" cellspacing="0" style="width:100%">
             <thead>
@@ -274,7 +276,59 @@
             </tfoot>
         </table>
     </div>
-    
+    <div id="meditprofil" class="tabcontent">
+        <div class="header row">
+            <div class="col-sm-9">
+                <h3>Edit Profile</h3>
+            </div>
+            <div class="col-sm-3 namauser">
+                <h4>
+                    <center>Manager</center>
+                </h4>
+            </div>
+        </div>
+        <h3>Edit Profile</h3>
+        <form method="post" action="hregister.php" class="form-horizontal">
+            <div class="form-group">
+                <label for="nama" class="col-sm-2 control-label">Name</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="nama" id="nama" placeholder="Fullname">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="gender" class="col-sm-2 control-label">Gender</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="gender" id="gender" placeholder="Gender">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="ttl" class="col-sm-2 control-label">Place & Date of birth</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="ttl" id="ttl" placeholder="Place & Date of Birth">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address" class="col-sm-2 control-label">Address</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="Address" id="Address" placeholder="Address">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="pass" class="col-sm-2 control-label">New Password</label>
+                <div class="col-sm-6">
+                    <input type="password" class="form-control" name="pass" id="pass" placeholder="New Password">
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <div class="col-sm-offset-6 col-sm-2">
+                    <button type="button" class="btn btn-primary btn-lg btn-block" style="background-color: #26C6DA; border: 0px;"
+                        id="submit" name="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -282,7 +336,7 @@
 <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
 <script type="text/javascript" language="javascript">
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('#mlaporan').DataTable();
         $('#kbahan').DataTable();
 
@@ -307,4 +361,5 @@
     }
     document.getElementById("defaultOpen").click(); 
 </script>
+
 </html>
