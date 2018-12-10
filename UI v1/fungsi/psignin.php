@@ -15,13 +15,14 @@ $role = $_POST["role"];
 			$_SESSION['idlogin']=$unama;
 			$_SESSION['level']=$role;
 			echo "<script>alert('login berhasil')</script>";
-			header('location: ../kelolabahan.php');
+			header('location: ../transaksi.php');
 		}else {
-			echo "<script>alert('login gagal')</script>";
-			header('location: ../signin.php');
+			echo "<script>alert('Login Gagal');
+			location.href='../signin.php'</script>";
+			//header('location: ../signin.php');
 		}
 	}elseif ($role=="dapur") {
-		$sql = "SELECT * from dapur where username = '$unama' and password = '$pass'";
+		$sql = "SELECT * from gudang where username = '$unama' and password = '$pass'";
 		$_SESSION['idlogin']=$unama;
 		$_SESSION['level']=$role;
 		$query = mysqli_query($conn,$sql);
@@ -31,8 +32,9 @@ $role = $_POST["role"];
 			echo "<script>alert('login berhasil')</script>";
 			header('location: ../kelolabahan.php');
 		}else {
-			echo "<script>alert('login gagal')</script>";
-			header('location: ../login.php');
+			echo "<script>alert('Login Gagal');
+			location.href='../signin.php'</script>";
+			//header('location: ../signin.php');
 		}
 	}elseif ($role=="manager") {
 		$sql = "SELECT * from manager where username = '$unama' and password = '$pass'";
@@ -45,8 +47,13 @@ $role = $_POST["role"];
 			echo "<script>alert('login berhasil')</script>";
 			header('location: ../manager.php');
 		}else {
-			echo "<script>alert('login gagal')</script>";
-			header('location: ../login.php');
+			echo "<script>alert('Login Gagal');
+			location.href='../signin.php'</script>";
+			//header('location: ../signin.php');
 		}
+	} else {
+		echo "<script>alert('Login Gagal');
+		location.href='../signin.php'</script>";
+		//header('location: ../signin.php');
 	}
 ?>

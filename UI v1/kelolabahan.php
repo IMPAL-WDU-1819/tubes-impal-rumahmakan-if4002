@@ -3,12 +3,28 @@ session_start();
 include('koneksi.php');
   if (empty($_SESSION['idlogin'])){
   header("Location: signin.php");
-}//else if ($_SESSION['idlogin']){
-  //if ($_SESSION['level']=!"kasir"){
-    //header("Location: signin.php");
-  //}
-//}
+} else if ($_SESSION['idlogin']){
+    if ($_SESSION['level']!="dapur"){
+    header("Location: login.php");
+    }
+}
 ?>
+<?php  
+$id = $_SESSION['idlogin'];
+$role = $_SESSION['level'];
+function namaU($p,$q)
+{
+    include ('koneksi.php');
+    $sql = "SELECT nama from gudang where username = '$p'";
+    $query = mysqli_query($conn,$sql);
+    if ($data = mysqli_fetch_array($query)){
+        $nama = $data['nama'];
+    }
+
+    echo "Hai! ".$nama."-".$q;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,15 +54,16 @@ include('koneksi.php');
     <button class="tablinks" onclick="openMenu(event, 'menu')" disabled>Menu</button>
     <button class="tablinks" onclick="openMenu(event, 'home')" >Home</button>
     <button class="tablinks" onclick="openMenu(event, 'editprofile')">Edit Profile</button>
-    <button class="tablinks">Logout</button>
+    <a href="fungsi/plogout.php"><button class="btnS btn btn-outline-danger">Logout</button></a>
 </div>
 
 <div id="home" class="tabcontent">
     <nav class="navbar navbar-expand-lg navbar-light header">
         <div class="container-fluid">
+            
             <ul class="nav navbar-nav navbar-right ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#" id="kanan">Nama User-ID User</a>
+                    <a class="nav-link" href="#" id="kanan"><?php namaU($id,$role); ?></a>
                 </li>
             </ul>
         </div>
@@ -57,10 +74,10 @@ include('koneksi.php');
             $role = $_SESSION['level'];
             $id = $_SESSION['idlogin'];
               
-            $sql = "SELECT * from $role where username = '$id'";
+            $sql = "SELECT * from gudang where username = '$id'";
             $query = mysqli_query($conn,$sql);
             if ($data = mysqli_fetch_array($query)){
-            $nama = $data['nama_kasir'];
+            $nama = $data['nama'];
             $jk = $data['jeniskelamin'];
             $ttl = $data['ttl'];
             $addr = $data['alamat'];
@@ -113,7 +130,7 @@ include('koneksi.php');
             <h3>Kelola Bahan</h3>
         </div>
         <div class="col-sm-3 namauser">
-            <h4><center>Nama User - ID</center></h4>
+            <h5><center><?php namaU($id,$role); ?></center></h5>
         </div>
     </div>
     <br>
@@ -197,7 +214,7 @@ include('koneksi.php');
                     </div>
                 </div>
             </div>
-                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>                    
+                    <a href="fungsi/dbahan.php?id_bahan=<?php echo $data['id_bahan'];?>" onclick="return confirm('Delete?')"><button class="btn btn-danger glyphicon glyphicon-trash"></button></a>                    
                 </center>
                 </td>
             </tr>
@@ -233,58 +250,53 @@ include('koneksi.php');
             </div>
             <div class="modal-body">
                 <!-- Form -->
-				<form method="post" class="form-horizontal">
-					<h2>Tambah Bahan</h2>
-					<div class="form-group">
-						<label for="id" class="col-sm-4 control-label">ID Bahan</label>
-						<div class="col-sm-8">
-							<input type="text" class="form-control"  name="id" id="id" placeholder="ID Bahan">
-						</div>
-					</div>
-					<div class="form-group">
-							<label for="nama" class="col-sm-4 control-label">Nama Bahan</label>
-							<div class="col-sm-8">
-								<input type="text" class="form-control"  name="nama" id="nama" placeholder="Nama Bahan">
-							</div>
-					</div>
-					<div class="form-group">
-							<label for="jumlah" class="col-sm-4 control-label">Jumlah</label>
-							<div class="col-sm-8">
-								<input type="text" class="form-control"  name="jumlah" id="jumlah" placeholder="Jumlah">
-							</div>
-					</div>
-					<div class="form-group">
-						<label for="satuan" class="col-sm-4 control-label">Satuan</label>
-						<div class="col-sm-8">
-							<input type="text" class="form-control"  name="satuan" id="satuan" placeholder="Satuan">
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="harga" class="col-sm-4 control-label">Harga Satuan</label>
-						<div class="col-sm-8">
-							<input type="text" class="form-control"  name="harga" id="harga" placeholder="Harga Satuan">
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="tglmasuk" class="col-sm-4 control-label">Tanggal Masuk</label>
-						<div class="col-sm-8">
-							<input type="text" class="form-control"  name="tglmasuk" id="tglmasuk" placeholder="Tanggal Masuk">
-						</div>
+                <form method="post" action="fungsi/tbahan.php" class="form-horizontal">
+                    <h2>Tambah Bahan</h2>
+                    <div class="form-group">
+                            <label for="nama" class="col-sm-4 control-label">Nama Bahan</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control"  name="nbahan" id="nama" placeholder="Nama Bahan">
+                            </div>
                     </div>
                     <div class="form-group">
-						<label for="tglkadaluarsa" class="col-sm-4 control-label">Tanggal Kadaluarsa</label>
-						<div class="col-sm-8">
-							<input type="text" class="form-control"  name="tglkadaluarsa" id="tglkadaluarsa" placeholder="Tanggal Kadaluarsa">
-						</div>
-					</div>
-  					<br>
-				</form>
+                            <label for="jumlah" class="col-sm-4 control-label">Jumlah</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control"  name="jumlah" id="jumlah" placeholder="Jumlah">
+                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="satuan" class="col-sm-4 control-label">Satuan</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control"  name="satuan" id="satuan" placeholder="Satuan">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="harga" class="col-sm-4 control-label">Harga Satuan</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control"  name="harga" id="harga" placeholder="Harga Satuan">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tglmasuk" class="col-sm-4 control-label">Tanggal Masuk</label>
+                        <div class="col-sm-8">
+                            <input type="date" class="form-control"  name="tglmasuk" id="tglmasuk" placeholder="Tanggal Masuk">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tglkadaluarsa" class="col-sm-4 control-label">Tanggal Kadaluarsa</label>
+                        <div class="col-sm-8">
+                            <input type="date" class="form-control"  name="tglkadaluarsa" id="tglkadaluarsa" placeholder="Tanggal Kadaluarsa">
+                        </div>
+                    </div>
+                    <br>
+                
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Tambah</button>
+                <button type="submit" class="btn btn-primary">Tambah</button>
             </div>
             </div>
+            </form>
         </div>
     </div>
 </div>
@@ -294,12 +306,12 @@ include('koneksi.php');
         <div class="container-fluid">
             <ul class="nav navbar-nav navbar-right ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#" id="kanan">Nama User-ID User</a>
+                    <a class="nav-link" href="#" id="kanan"><?php namaU($id,$role); ?></a>
                 </li>
             </ul>
         </div>
     </nav>
-
+        
     <div class="profile">
         <div class="profile-img" style="margin: 60px 60px 30px 60px">
             <img src="assets/img/pp.jpg" width="25%" style="border-radius: 50%; align-content: center">
@@ -310,6 +322,20 @@ include('koneksi.php');
                 <div class="col-md-4">
                     <label>Edit Profile</label>
                 </div>
+                <?php
+                $role = $_SESSION['level'];
+                $id = $_SESSION['idlogin'];
+                  
+                $sql = "SELECT * from gudang where username = '$id'";
+                $query = mysqli_query($conn,$sql);
+                if ($data = mysqli_fetch_array($query)){
+                $nama = $data['nama'];
+                $jk = $data['jeniskelamin'];
+                $ttl = $data['ttl'];
+                $addr = $data['alamat'];
+                $pass = $data['password'];
+                }
+                ?>
                 <div class="col-md-6">
                     <div class="profile-image">
                         <div class="file btn btn-lg btn-sm" style="background-color:grey; border-color:grey;">
@@ -317,13 +343,23 @@ include('koneksi.php');
                         </div>
                     </div>
                 </div>
+            </div>
+            <div>
+            <form method="post" action="fungsi/uakund.php">
+            <div class="row">
+                <div class="col-md-4">
+                    <label>Username</label>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" value="<?php echo $id; ?>" class="form-control" name="unama" id="usr" readonly>
+                </div>
             </div>    
             <div class="row">
                 <div class="col-md-4">
                     <label>Name</label>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" id="usr">
+                    <input type="text" value="<?php echo $nama; ?>" class="form-control" name="nama" id="usr">
                 </div>
             </div>
             <div class="row">
@@ -345,10 +381,10 @@ include('koneksi.php');
             </div>
             <div class="row">
                 <div class="col-md-4">
-                     <label>Place & Date of Birth</label>
+                     <label>Date of Birth</label>
                 </div>
                 <div class="col-md-6">
-                        <input type="text" class="form-control" id="usr">
+                        <input type="date" value="<?php echo $ttl; ?>" class="form-control" name="ttl" id="usr">
                 </div>
             </div>
             <div class="row">
@@ -356,15 +392,15 @@ include('koneksi.php');
                     <label>Address</label>
                 </div>
                 <div class="col-md-6">
-                    <textarea class="form-control" rows="5" id="address"></textarea>
+                    <input type="text" name="alamat" value="<?php echo $addr; ?>" class="form-control" id="usr">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <label>New Password</label>
+                    <label>Password</label>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" id="usr">
+                    <input type="password" class="form-control" id="usr" value="<?php echo $pass; ?>" name="pass">
                 </div>
             </div>
             <div class="row">
@@ -376,11 +412,13 @@ include('koneksi.php');
                         <label class="col-lg-3 col-form-label form-control-label"></label>
                         <div class="col-lg-9">
                             <input type="reset" class="btn btn-secondary" value="Cancel" />
-                            <input type="button" class="btn btn-primary"  style="background-color: #00BCD4; border: 0px" value="Save Changes" />
+                            <input type="submit" class="btn btn-primary"  style="background-color: #00BCD4; border: 0px" value="Save Changes" />
                         </div>
                     </div>
                 </div>
             </div>
+        </form>
+    </div>
         </div>
     </div>        
 </div>

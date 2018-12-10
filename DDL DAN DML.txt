@@ -42,14 +42,14 @@ e. Create Table kasir(
 	);
 
 f. Create Table transaksi( 
-	id_transaksi integer(10) primary key auto_increment, 
+	id_transaksi integer(10) primary key, 
 	nama_pesanan varchar(30) not null, 
 	jumlah integer(10) not null, 
 	harga double not null, 
-	tanggal date not null, 
-	waktu time not null, 
+	tanggal datetime not null,  
 	keterangan varchar(10) not null, 
-	total_harga integer(10) not null 
+	total_harga integer(10) not null,
+	status varchar(5) not null 
 	);
 
 g. Create Table manager( 
