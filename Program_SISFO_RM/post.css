@@ -1,0 +1,78 @@
+
+.posts {
+    margin-top: 60px;
+    width: 90%;
+    margin-left: auto;
+    /* margin-right: auto; */
+    display: block;
+}
+
+.masking {
+	overflow: hidden;
+}
+.posts img {
+	border-radius: 5px;
+	width: 300px;
+	transition: ease 0.5s;
+}
+
+.posts img:hover {
+	transition: ease 0.5s;
+	transform: scale(1.2);
+}
+
+.post h4 {
+	line-height: 16px;
+}
+
+.posts a {
+	text-decoration: none;
+}
+
+.post {
+	width: 300px;
+	display: inline-block;
+	margin: 0 19px;
+	margin-bottom: 40px;
+	overflow: hidden;
+}
+
+#btn {
+    width: 300px;
+}
+
+.profile {
+	margin-top: 5%;
+	margin-bottom: 10%;
+	float: center;
+}
+
+.profile-img{
+    text-align: center;
+}
+ 
+.profile-img img{
+    width: 25%;
+    height: 50%;
+}
+
+.profile-box {
+	width: 80%;
+	border: none;
+	float: center;
+	padding-left: 80px;
+	padding-top: 10px;
+	font-size: 15px;	
+    
+}
+
+
+.h2 {
+	padding-left: 16%;
+}
+.profile p {
+	color: black;
+}
+.row {
+	padding-top: 3px;
+}
